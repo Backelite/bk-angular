@@ -33,8 +33,8 @@ angular.module('bk.angular.ui.navbar', [])
         return {
             replace: true,
             scope: {
-                submitFn: '&',
-                placeholder: '='
+                placeholder: '=',
+                submitFn: '&'
             },
             templateUrl: "bk.angular.ui.navbar.searchfield.html"
         }
