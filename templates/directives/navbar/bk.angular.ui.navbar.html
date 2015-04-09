@@ -4,9 +4,9 @@
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
         <ul class="nav navbar-nav" ng-repeat="items in [leftItems, rightItems]"
             ng-class="{'navbar-right' : (items===rightItems)}">
-            <nav-search-field ng-if="items===rightItems && searchFieldEnabled==='true' && searchFieldOnLeft!=='true'"
+            <bk-nav-bar-search-field ng-if="items===rightItems && searchFieldEnabled==='true' && searchFieldOnLeft!=='true'"
                               class="navbar-left" submit-fn="searchFieldSubmitFn({'query':query})"
-                              placeholder="searchFieldPlaceholder"></nav-search-field>
+                              placeholder="searchFieldPlaceholder"></bk-nav-bar-search-field>
             <li ng-repeat="item in items" dropdown>
                 <a ng-if="!item.childs || item.childs.length==0" href="#">
                     <i ng-if="item[$parent.iconProperty] || item.icon"
