@@ -5,9 +5,37 @@ angular.module('bk.angular.ui.navbar', [])
         return {
             replace: true,
             scope: {
-                brandName: "@brandName",
-                clickFn: '&clickFn'
+                headerBrandName: "@",
+                headerLogoClassName: "@",
+                headerToggleLabel: "@",
+                leftItems: "=",
+                rightItems: "=",
+                labelProperty: "@",
+                searchFieldEnabled: "@",
+                searchFieldOnLeft: "@",
+                searchFieldPlaceholder: "@",
+                searchFieldSubmitFn: '&'
             },
-            templateUrl: "test/template.html"
+            templateUrl: "bk.angular.ui.navbar.html"
+        }
+    }).directive("bkNavBarHeader", function () {
+        return {
+            replace: true,
+            scope: {
+                navCollapsed: "=",
+                brandName: "=",
+                logoClassName: "=",
+                toogleLabel: "="
+            },
+            templateUrl: "bk.angular.ui.navbar.header.html"
+        }
+    }).directive("bkNavBarSearchField", function () {
+        return {
+            replace: true,
+            scope: {
+                submitFn: '&',
+                placeholder: '='
+            },
+            templateUrl: "bk.angular.ui.navbar.searchfield.html"
         }
     });
