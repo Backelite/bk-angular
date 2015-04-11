@@ -8,7 +8,8 @@
                               class="navbar-left" submit-fn="searchFieldSubmitFn({'query':query})"
                               placeholder="searchFieldPlaceholder"></bk-nav-bar-search-field>
             <li ng-repeat="item in items" dropdown>
-                <a ng-if="!item.childs || item.childs.length==0" href="#">
+                <a ng-if="!item.childs || item.childs.length==0" href="{{item[$parent.urlProperty] ||
+                    item.url}}">
                     <i ng-if="item[$parent.iconProperty] || item.icon"
                        class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
                     item.label}}
@@ -20,7 +21,8 @@
                     <b class="caret"></b>
                 </a>
                 <ul ng-if="item.childs && item.childs.length>0" class="dropdown-menu" role="menu">
-                    <li ng-repeat="child in item.childs"><a href="#">{{child[$parent.labelProperty] || child.label}}</a>
+                    <li ng-repeat="child in item.childs"><a href="{{child[$parent.urlProperty] ||
+                    child.url}}">{{child[$parent.labelProperty] || child.label}}</a>
                     </li>
                 </ul>
             </li>
