@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" ng-init="navCollapsed = true" xmlns="http://www.w3.org/1999/html">
+<nav class="navbar navbar-default" role="navigation" ng-init="navCollapsed = true" ng-class="{'navbar-fixed-top':(fixedToTop==='true')}">
     <bk-nav-bar-header nav-collapsed="navCollapsed" brand-name="headerBrandName" logo-class-name="headerLogoClassName"
                 toogle-label="headerToggleLabel"></bk-nav-bar-header>
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
