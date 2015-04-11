@@ -1,34 +1,40 @@
-<nav class="navbar navbar-default" role="navigation" ng-init="navCollapsed = true" ng-class="{'navbar-fixed-top':(fixedToTop==='true')}">
-    <bk-nav-bar-header nav-collapsed="navCollapsed" brand-name="headerBrandName" logo-class-name="headerLogoClassName"
-                toogle-label="headerToggleLabel"></bk-nav-bar-header>
-    <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-        <ul class="nav navbar-nav" ng-repeat="items in [leftItems, rightItems]"
-            ng-class="{'navbar-right' : (items===rightItems)}">
-            <bk-nav-bar-search-field ng-if="items===rightItems && searchFieldEnabled==='true' && searchFieldOnLeft!=='true'"
-                              class="navbar-left" submit-fn="searchFieldSubmitFn({'query':query})"
-                              placeholder="searchFieldPlaceholder"></bk-nav-bar-search-field>
-            <li ng-repeat="item in items" dropdown>
-                <a ng-if="!item.childs || item.childs.length==0" href="{{item[$parent.urlProperty] ||
+<nav class="navbar navbar-default" role="navigation" ng-init="navCollapsed = true"
+     ng-class="{'navbar-fixed-top':(fixedToTop==='true')}">
+    <div class="container">
+        <bk-nav-bar-header nav-collapsed="navCollapsed" brand-name="headerBrandName"
+                           logo-class-name="headerLogoClassName"
+                           toogle-label="headerToggleLabel"></bk-nav-bar-header>
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav" ng-repeat="items in [leftItems, rightItems]"
+                ng-class="{'navbar-right' : (items===rightItems)}">
+                <bk-nav-bar-search-field
+                        ng-if="items===rightItems && searchFieldEnabled==='true' && searchFieldOnLeft!=='true'"
+                        class="navbar-left" submit-fn="searchFieldSubmitFn({'query':query})"
+                        placeholder="searchFieldPlaceholder"></bk-nav-bar-search-field>
+                <li ng-repeat="item in items" dropdown>
+                    <a ng-if="!item.childs || item.childs.length==0" href="{{item[$parent.urlProperty] ||
                     item.url}}">
-                    <i ng-if="item[$parent.iconProperty] || item.icon"
-                       class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
-                    item.label}}
-                </a>
-                <a ng-if="item.childs && item.childs.length>0" href="#" class="dropdown-toggle" dropdown-toggle>
-                    <i ng-if="item[$parent.iconProperty] || item.icon"
-                       class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
-                    item.label}}
-                    <b class="caret"></b>
-                </a>
-                <ul ng-if="item.childs && item.childs.length>0" class="dropdown-menu" role="menu">
-                    <li ng-repeat="child in item.childs"><a href="{{child[$parent.urlProperty] ||
+                        <i ng-if="item[$parent.iconProperty] || item.icon"
+                           class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
+                        item.label}}
+                    </a>
+                    <a ng-if="item.childs && item.childs.length>0" href="#" class="dropdown-toggle" dropdown-toggle>
+                        <i ng-if="item[$parent.iconProperty] || item.icon"
+                           class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
+                        item.label}}
+                        <b class="caret"></b>
+                    </a>
+                    <ul ng-if="item.childs && item.childs.length>0" class="dropdown-menu" role="menu">
+                        <li ng-repeat="child in item.childs"><a href="{{child[$parent.urlProperty] ||
                     child.url}}">{{child[$parent.labelProperty] || child.label}}</a>
-                    </li>
-                </ul>
-            </li>
-            <bk-nav-bar-search-field ng-if="items===leftItems && searchFieldEnabled==='true' && searchFieldOnLeft==='true'"
-                              submit-fn="searchFieldSubmitFn({'query':query})"
-                              placeholder="searchFieldPlaceholder"></bk-nav-bar-search-field>
-        </ul>
+                        </li>
+                    </ul>
+                </li>
+                <bk-nav-bar-search-field
+                        ng-if="items===leftItems && searchFieldEnabled==='true' && searchFieldOnLeft==='true'"
+                        submit-fn="searchFieldSubmitFn({'query':query})"
+                        placeholder="searchFieldPlaceholder"></bk-nav-bar-search-field>
+            </ul>
+        </div>
     </div>
 </nav>
