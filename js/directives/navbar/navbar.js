@@ -22,12 +22,12 @@ angular.module('bk.angular.ui.navbar', [])
             },
             link: function (scope, element, attrs) {
                 if (angular.isDefined(scope.childsProperty)) {
-                    for (var item in scope.leftItems) {
+                    angular.forEach(scope.leftItems, function (item) {
                         item.childs = item[scope.childsProperty];
-                    }
-                    for (var item in scope.rightItems) {
+                    });
+                    angular.forEach(scope.rightItems, function (item) {
                         item.childs = item[scope.childsProperty];
-                    }
+                    });
                 }
             },
             templateUrl: 'bk.angular.ui.navbar.html'
