@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bk.angular.filters.unique', [])
-    .filter('unique' , function () {
+    .filter('bkUnique' , function () {
         return function (data, propertyName) {
             if (angular.isArray(data) && angular.isString(propertyName)) {
                 var results = [];
