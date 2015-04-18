@@ -3,7 +3,7 @@
 angular.module('bk.angular.filters.sumByKey', [])
     .filter('bkSumByKey', function () {
         return function (data, key) {
-            if (angular.isDefined(data) || angular.isDefined(key)) {
+            if (angular.isUndefined(data) || angular.isUndefined(key)) {
                 return 0;
             }
             var sum = 0;
