@@ -10,12 +10,12 @@ angular.module('bk.angular.filters.undefinedValues', [])
             angular.forEach(data, function (element) {
                 if(angular.isDefined(key)) {
                     if(angular.isUndefined(element[key])) {
-                        undefinedValues.add(element);
+                        undefinedValues.push(element);
                     }
                 }
                 else {
                     if (angular.isUndefined(element)) {
-                        undefinedValues.add(element);
+                        undefinedValues.push(element);
                     }
                 }
             });
