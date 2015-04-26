@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bk.angular.filters.round', [])
-    .filter('round', function () {
+    .filter('bkRound', function () {
         return function (value, precision) {
             if (angular.isUndefined(value)) {
                 return 0;
