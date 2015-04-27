@@ -4,10 +4,13 @@ angular.module('bk.angular.filters.groupedProperties', [])
     .filter('bkGroupedProperties', function () {
         return function (data, properties) {
             var results = [];
+            if (angular.isUndefined(data) || angular.isUndefined(properties)) {
+                return results;
+            }
             if (angular.isArray(data)) {
                 angular.forEach(data, function (element) {
                     if (angular.isString(properties)) {
-                        if (angular. isArray(element[properties])) {
+                        if (angular.isDefined(element[properties]) && angular. isArray(element[properties])) {
                             angular.forEach(element[properties], function (propertyElement) {
                                 results.push(propertyElement);
                             });
@@ -18,7 +21,7 @@ angular.module('bk.angular.filters.groupedProperties', [])
                     }
                     else if (angular.isArray(properties)) {
                         angular.forEach(properties, function (property) {
-                            if (angular. isArray(element[property])) {
+                            if (angular.isDefined(element[property]) && angular. isArray(element[property])) {
                                 angular.forEach(element[property], function (propertyElement) {
                                     results.push(propertyElement);
                                 });
@@ -31,7 +34,7 @@ angular.module('bk.angular.filters.groupedProperties', [])
                 });
             }
             else if (angular.isString(properties)) {
-                if (angular. isArray(data[properties])) {
+                if (angular.isDefined(data[properties]) && angular.isArray(data[properties])) {
                     angular.forEach(data[properties], function (propertyElement) {
                         results.push(propertyElement);
                     });
@@ -42,7 +45,7 @@ angular.module('bk.angular.filters.groupedProperties', [])
             }
             else if (angular.isArray(properties)) {
                 angular.forEach(properties, function (property) {
-                    if (angular. isArray(data[property])) {
+                    if (angular.isDefined(data[property]) && angular. isArray(data[property])) {
                         angular.forEach(data[property], function (propertyElement) {
                             results.push(propertyElement);
                         });
