@@ -15,7 +15,7 @@ angular.module('bk.angular.filters.timestampToDates', [])
                 }
                 else {
                     if (angular.isDefined(element) && angular.isNumber(element)) {
-                        dates.push(new Date(element);
+                        dates.push(new Date(element));
                     }
                 }
             });
