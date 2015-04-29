@@ -3,7 +3,7 @@
 angular.module('bk.angular.filters.round', [])
     .filter('bkRound', function () {
         return function (value, precision) {
-            if (angular.isUndefined(value)) {
+            if (angular.isUndefined(value) || !angular.isNumber(value)) {
                 return 0;
             }
             if (angular.isUndefined(precision) || !angular.isNumber(precision)) {
