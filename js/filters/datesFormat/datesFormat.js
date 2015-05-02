@@ -9,12 +9,12 @@ angular.module('bk.angular.filters.datesFormat', [])
             angular.forEach(data, function (element) {
                 if(angular.isDefined(key) && angular.isString(key)) {
                     if(angular.isDefined(element[key]) && angular.isNumber(element[key])) {
-                        element[key] = $format('date')(element[key], format);
+                        element[key] = $filter('date')(element[key], format);
                     }
                 }
                 else {
                     if (angular.isDefined(element) && angular.isNumber(element)) {
-                        element = $format('date')(element, format);
+                        element = $filter('date')(element, format);
                     }
                 }
             });
