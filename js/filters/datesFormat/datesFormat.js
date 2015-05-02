@@ -6,15 +6,15 @@ angular.module('bk.angular.filters.datesFormat', [])
             if (angular.isUndefined(data) || !angular.isArray(data) || !angular.isString(format)) {
                 return data;
             }
-            angular.forEach(data, function (element) {
+            angular.forEach(data, function (element, index) {
                 if(angular.isDefined(key) && angular.isString(key)) {
-                    if(angular.isDefined(element[key]) && angular.isNumber(element[key])) {
+                    if(angular.isDefined(element[key])) {
                         element[key] = $filter('date')(element[key], format);
                     }
                 }
                 else {
-                    if (angular.isDefined(element) && angular.isNumber(element)) {
-                        element = $filter('date')(element, format);
+                    if (angular.isDefined(element)) {
+                        data[index] = $filter('date')(element, format);
                     }
                 }
             });
