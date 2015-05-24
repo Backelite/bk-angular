@@ -24,11 +24,9 @@
                         item.label}}
                         <b class="caret"></b>
                     </a>
-                    <ul ng-if="item.childs && item.childs.length>0" class="dropdown-menu" role="menu">
-                        <li ng-repeat="child in item.childs"><a href="{{child[$parent.urlProperty] ||
-                    child.url}}">{{child[$parent.labelProperty] || child.label}}</a>
-                        </li>
-                    </ul>
+                    <bk-nav-bar-ul ng-if="item.childs && item.childs.length>0" items="item.childs" childs-property="childsProperty"
+                                   label-property="labelProperty" icon-property="iconProperty" url-property="urlProperty">
+                    </bk-nav-bar-ul>
                 </li>
                 <bk-nav-bar-search-field
                         ng-if="items===leftItems && searchFieldEnabled==='true' && searchFieldOnLeft==='true'"
