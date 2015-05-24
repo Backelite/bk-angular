@@ -4,6 +4,7 @@ describe("bk.angular.ui.navbar Tests", function () {
     var compileService;
 
     beforeEach(angular.mock.module('bk.angular.ui.navbar', 'bk.angular.ui.navbar.html',
+        'bk.angular.ui.navbar.ul.html', 'bk.angular.ui.navbar.li.html',
         'bk.angular.ui.navbar.header.html', 'bk.angular.ui.navbar.searchfield.html'));
 
     beforeEach(angular.mock.inject(function ($rootScope, $compile) {
