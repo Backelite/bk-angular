@@ -15,12 +15,12 @@
                     <a ng-if="!item.childs || item.childs.length==0" href="{{item[$parent.urlProperty] ||
                     item.url}}">
                         <i ng-if="item[$parent.iconProperty] || item.icon"
-                           class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
+                           class="{{item[$parent.iconProperty] || item.icon}}"></i> {{item[$parent.labelProperty] ||
                         item.label}}
                     </a>
                     <a ng-if="item.childs && item.childs.length>0" href="#" class="dropdown-toggle" dropdown-toggle>
                         <i ng-if="item[$parent.iconProperty] || item.icon"
-                           class="{{item[$parent.iconProperty] || item.icon}}"></i>{{item[$parent.labelProperty] ||
+                           class="{{item[$parent.iconProperty] || item.icon}}"></i> {{item[$parent.labelProperty] ||
                         item.label}}
                         <b class="caret"></b>
                     </a>
