@@ -3,6 +3,9 @@
 angular.module('bk.angular.filters.round', [])
     .filter('bkRound', function () {
         return function (value, precision) {
+            if(angular.isDefined(value) && !angular.isNumber(value)) {
+                value = parseFloat(value)
+            }
             if (angular.isUndefined(value) || !angular.isNumber(value)) {
                 return 0;
             }
