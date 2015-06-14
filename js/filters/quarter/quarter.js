@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bk.angular.filters.quarter', [])
-    .filter('bkQuarter', function () {
+    .filter('bkQuarter', function ($filter) {
         return function (value) {
             if (angular.isDate(value)) {
                 return '';
