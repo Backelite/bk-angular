@@ -70,6 +70,9 @@ angular.module('bk.angular.ui.navbar', [])
                 if (angular.isDefined(scope.item.childs) && scope.item.childs.length>0) {
                     element.append('<bk-nav-bar-ul items=\"item.childs\" childs-property=\"childsProperty\" label-property=\"labelProperty\" icon-property=\"iconProperty\" url-property=\"urlProperty\"></bk-nav-bar-ul>');
                     element.addClass('dropdown-submenu');
+                    element.children('a').on("click", function(e){
+                        e.preventDefault();
+                    });
                     $compile(element.contents())(scope);
                 }
             },
