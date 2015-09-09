@@ -1,0 +1,30 @@
+'use strict';
+
+angular.module('bk.angular.ui.formulaInput', [])
+    .directive('bkFormulaInput', function ($filter) {
+        return {
+            restrict: 'E',
+            replace: true,
+            scope: {
+                formula: '=',
+                value: '='
+            },
+            controller: function ($scope, $element, $attrs) {
+                if(angular.isUndefined($scope.value) || !angular.isNumber($scope.value)) {
+                    $scope.value = 0;
+                }
+                $scope.formulaChange = function (formula) {
+                    try {
+                        $scope.value = $scope.$eval(formula);
+                        if (angular.isUndefined($scope.value)) {
+                            $scope.value = 0;
+                        }
+                    } catch (e) {
+                        $scope.value = 0;
+                    }
+                    $scope.value = $filter('bkRound')($scope.value, 3);
+                }
+            },
+            templateUrl: 'bk.angular.ui.formulaInput.html'
+        }
+    });
