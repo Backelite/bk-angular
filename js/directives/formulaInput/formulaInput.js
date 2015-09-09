@@ -18,7 +18,7 @@ angular.module('bk.angular.ui.formulaInput', [])
                 }
                 $scope.formulaChange = function (formula) {
                     try {
-                        $scope.value = $scope.$eval(formula);
+                        $scope.value = $scope.$eval(formula.replace(",", "."));
                         if (angular.isUndefined($scope.value)) {
                             $scope.value = 0;
                         }
