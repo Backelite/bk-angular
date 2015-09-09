@@ -13,6 +13,9 @@ angular.module('bk.angular.ui.formulaInput', [])
                 if(angular.isUndefined($scope.value) || !angular.isNumber($scope.value)) {
                     $scope.value = 0;
                 }
+                if(angular.isUndefined($scope.formula) || $scope.formula.length===0) {
+                    $scope.formula = scope.value;
+                }
                 $scope.formulaChange = function (formula) {
                     try {
                         $scope.value = $scope.$eval(formula);
