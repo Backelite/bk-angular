@@ -6,6 +6,9 @@ angular.module('bk.angular.filters.objectEquals', [])
             if (!angular.isObject(object) || !angular.isObject(otherObject)) {
                 return false;
             }
+            if(object===otherObject) {
+                return true;
+            }
             if (angular.isDefined(identifierKey) && angular.isDefined(object[identifierKey]) && angular.isDefined(otherObject[identifierKey])) {
                 return object[identifierKey]===otherObject[identifierKey];
             }
